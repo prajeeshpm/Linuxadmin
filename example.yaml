@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks: 
+   - name: check fs
+     shell: df
+     register: df_out
+   - debug:
+      var: df_out.stdout_lines
+
