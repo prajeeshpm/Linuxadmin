@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks: 
+   - name: check fs
+     shell: df
+     register: df_out
+   - name: check uptime 
+     shell: uptime
+     register: uptime_out
+    
+   - name: check status
+     debug:
+      var: df_out.stdout_lines
+   - name: check status
+     debug:
+      var: uptime_out.stdout_lines
